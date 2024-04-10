@@ -1,6 +1,13 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 
+import AuthView from "@/views/AuthView.vue";
+
 const routes = [
+  {
+    path: "/",
+    name: "auth",
+    component: AuthView,
+  },
   {
     path: "/analytics",
     component: () => import("@/views/AnalyticsView.vue"),
