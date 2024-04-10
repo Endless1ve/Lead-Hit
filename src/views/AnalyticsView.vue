@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="analytics">
     <ChartBlock />
   </div>
 </template>
@@ -14,4 +14,8 @@
   };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+  .analytics {
+    padding: 20px;
+  }
+</style>
