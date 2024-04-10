@@ -2,31 +2,44 @@
   <form class="form">
     <LogoItem />
     <div class="inputGroup">
-      <InputItem :placeholder="'Введите id сайта'" v-model.trim="siteId" />
+      <InputItem
+        :placeholder="'Введите id сайта'"
+        v-model.trim="siteId"
+        @input="clearError" />
+      <ErrorItem v-if="isErrorVisible">{{ errorText }}</ErrorItem>
     </div>
     <ButtonItem>Войти</ButtonItem>
   </form>
 </template>
 
 <script>
-  import { mapMutations } from "vuex";
+  import { mapGetters, mapMutations, mapActions } from "vuex";
 
   import LogoItem from "@/components/UI/LogoItem.vue";
   import InputItem from "@/components/UI/InputItem.vue";
   import ButtonItem from "@/components/UI/ButtonItem.vue";
+  import ErrorItem from "@/components/UI/ErrorItem.vue";
 
   export default {
     components: {
       LogoItem,
       InputItem,
       ButtonItem,
+      ErrorItem,
     },
     methods: {
       ...mapMutations({
         updateSiteId: "auth/updateSiteId",
       }),
+      ...mapActions({
+        clearError: "auth/clearError",
+      }),
     },
     computed: {
+      ...mapGetters({
+        isErrorVisible: "auth/isErrorVisible",
+        errorText: "auth/errorText",
+      }),
       siteId: {
         get() {
           return this.$store.state.auth.siteId;
