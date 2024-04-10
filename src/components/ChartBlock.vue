@@ -1,11 +1,18 @@
 <template>
   <div class="chart">
     <h3 class="title">Аналитика</h3>
+    <ChartItem />
   </div>
 </template>
 
 <script>
-  export default {};
+  import ChartItem from "@/components/ChartItem.vue";
+
+  export default {
+    components: {
+      ChartItem,
+    },
+  };
 </script>
 
 <style lang="scss" scoped>
