@@ -21,4 +21,13 @@ const router = createRouter({
   routes,
 });
 
+router.beforeEach((to, from, next) => {
+  const storageKey = localStorage.getItem("leadhit-site-id");
+  if (to.meta.requiresAuth && !storageKey) {
+    next({ name: "auth" });
+  } else {
+    next();
+  }
+});
+
 export default router;
