@@ -8,7 +8,7 @@
         @input="clearError" />
       <ErrorItem v-if="isErrorVisible">{{ errorText }}</ErrorItem>
     </div>
-    <ButtonItem>Войти</ButtonItem>
+    <ButtonItem @click="sendData">Войти</ButtonItem>
   </form>
 </template>
 
@@ -33,6 +33,7 @@
       }),
       ...mapActions({
         clearError: "auth/clearError",
+        sendData: "auth/sendData",
       }),
     },
     computed: {
