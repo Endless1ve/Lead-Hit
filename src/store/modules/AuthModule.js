@@ -8,6 +8,25 @@ const AuthModule = {
     errorText: "",
     isLoading: false,
   }),
+
+  getters: {
+    siteId(state) {
+      return state.siteId;
+    },
+
+    isErrorVisible(state) {
+      return state.isErrorVisible;
+    },
+
+    errorText(state) {
+      return state.errorText;
+    },
+
+    isLoading(state) {
+      return state.isLoading;
+    },
+  },
+
   namespaced: true,
 };
 
