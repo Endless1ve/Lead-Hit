@@ -17,3 +17,8 @@ $form-gap: 20px;
   display: flex;
   flex-direction: column;
 }
+
+@mixin flex-row {
+  display: flex;
+  flex-direction: row;
+}
