@@ -8,7 +8,7 @@
         @input="clearError" />
       <ErrorItem v-if="isErrorVisible">{{ errorText }}</ErrorItem>
     </div>
-    <ButtonItem @click="sendData">Войти</ButtonItem>
+    <ButtonItem @click.prevent="sendData">Войти</ButtonItem>
   </form>
 </template>
 
