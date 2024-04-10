@@ -27,6 +27,12 @@ const AuthModule = {
     },
   },
 
+  mutations: {
+    updateSiteId(state, value) {
+      state.siteId = value;
+    },
+  },
+
   namespaced: true,
 };
 

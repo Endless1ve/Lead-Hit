@@ -2,13 +2,15 @@
   <form class="form">
     <LogoItem />
     <div class="inputGroup">
-      <InputItem :placeholder="'Введите id сайта'" />
+      <InputItem :placeholder="'Введите id сайта'" v-model.trim="siteId" />
     </div>
     <ButtonItem>Войти</ButtonItem>
   </form>
 </template>
 
 <script>
+  import { mapMutations } from "vuex";
+
   import LogoItem from "@/components/UI/LogoItem.vue";
   import InputItem from "@/components/UI/InputItem.vue";
   import ButtonItem from "@/components/UI/ButtonItem.vue";
@@ -18,6 +20,22 @@
       LogoItem,
       InputItem,
       ButtonItem,
+    },
+    methods: {
+      ...mapMutations({
+        updateSiteId: "auth/updateSiteId",
+      }),
+    },
+    computed: {
+      siteId: {
+        get() {
+          return this.$store.state.auth.siteId;
+        },
+
+        set(value) {
+          this.updateSiteId(value);
+        },
+      },
     },
   };
 </script>

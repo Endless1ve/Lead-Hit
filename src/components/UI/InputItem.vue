@@ -1,13 +1,26 @@
 <template>
-  <input class="input" type="text" :placeholder="placeholder" />
+  <input
+    class="input"
+    type="text"
+    :placeholder="placeholder"
+    :value="modelValue"
+    @input="updateInput" />
 </template>
 
 <script>
   export default {
     props: {
+      modelValue: {
+        type: [String, Number],
+      },
       placeholder: {
         type: String,
         required: true,
+      },
+    },
+    methods: {
+      updateInput(evt) {
+        this.$emit("update:modelValue", evt.target.value);
       },
     },
   };
