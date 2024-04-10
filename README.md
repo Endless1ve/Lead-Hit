@@ -1,6 +1,6 @@
 # Тестовое для задание для компании LeadHit
 
-[Деплой](https://endless1ve.github.io/Lead-Hit/#/analytics)
+[Деплой](https://endless1ve.github.io/Lead-Hit/#/)
 
 <details>
 <summary>Открыть</summary>
