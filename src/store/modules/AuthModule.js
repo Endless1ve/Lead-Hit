@@ -46,6 +46,10 @@ const AuthModule = {
     setInputValidity(state, bool) {
       state.isInputValid = bool;
     },
+
+    setLoading(state, bool) {
+      state.isLoading = bool;
+    },
   },
 
   actions: {
@@ -69,11 +73,13 @@ const AuthModule = {
       }
     },
 
-    async sendData({ state, dispatch }) {
+    async sendData({ state, commit, dispatch }) {
       try {
         dispatch("validateInput");
 
         if (state.isInputValid) {
+          commit("setLoading", true);
+
           const response = await axios.get(
             "https://track-api.leadhit.io/client/test_auth",
             {
@@ -88,7 +94,13 @@ const AuthModule = {
           }
         }
       } catch (err) {
-        console.log(err);
+        if (err.request) {
+          dispatch("setError", state.serverError);
+        } else {
+          dispatch("setError", state.incorrectValue);
+        }
+      } finally {
+        commit("setLoading", false);
       }
     },
   },

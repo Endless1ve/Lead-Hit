@@ -1,15 +1,25 @@
 <template>
   <div class="auth">
     <FormItem />
+    <PreloaderBlock v-if="isLoading" />
   </div>
 </template>
 
 <script>
+  import { mapGetters } from "vuex";
+
   import FormItem from "@/components/FormItem.vue";
+  import PreloaderBlock from "@/components/UI/PreloaderBlock.vue";
 
   export default {
     components: {
       FormItem,
+      PreloaderBlock,
+    },
+    computed: {
+      ...mapGetters({
+        isLoading: "auth/isLoading",
+      }),
     },
   };
 </script>
