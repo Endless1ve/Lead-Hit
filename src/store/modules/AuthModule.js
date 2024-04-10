@@ -1,4 +1,5 @@
 import axios from "axios";
+import router from "@/router";
 
 const AuthModule = {
   state: () => ({
@@ -91,6 +92,7 @@ const AuthModule = {
           );
           if (response.data.message === "ok") {
             localStorage.setItem("leadhit-site-id", state.siteId);
+            router.push("/analytics");
           }
         }
       } catch (err) {
