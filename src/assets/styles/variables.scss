@@ -1,0 +1,19 @@
+$main-font: "Rubik", Arial, Helvetica, sans-serif;
+$main-dark-color: #2c3236;
+$main-light-color: #ffffff;
+$accent-color: #ff4402;
+$error-color: #ff0000;
+
+$border-radius: 5px;
+
+$form-input-border-size: 1px;
+$form-input-border-color: rgba(6, 6, 7, 0.15);
+
+$form-border-size: 1px;
+$form-border-color: rgba($accent-color, 0.5);
+$form-gap: 20px;
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
