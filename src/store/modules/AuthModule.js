@@ -94,10 +94,10 @@ const AuthModule = {
           }
         }
       } catch (err) {
-        if (err.request) {
-          dispatch("setError", state.serverError);
-        } else {
+        if (err.request.status === 401 || err.request.status === 422) {
           dispatch("setError", state.incorrectValue);
+        } else {
+          dispatch("setError", state.serverError);
         }
       } finally {
         commit("setLoading", false);
